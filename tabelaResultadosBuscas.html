@@ -1,0 +1,559 @@
+<!doctype html>
+<html ⚡>
+  <head>
+    <meta charset="utf-8">
+    <title>Sample document</title>
+    <link rel="canonical" href="./regular-html-version.html">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <!-- amp css styles -->
+    <style amp-custom>
+      *{margin:0;padding:0;box-sizing:border-box;outline:none;text-decoration:none;font-family:'Roboto Condensed',sans-serif;font-size:12px;color:#999}
+      .headerPrincipal{height:80px;border-bottom:.25px solid #ddd;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-around;align-items:center}
+      .headerPrincipal a{cursor:pointer}
+      .headerPrincipal a svg path:hover{transition:all .5s ease-out;fill:#437eaa}
+      .HeaderLogo{width:150px}
+      .HeaderPrincipalIcons{cursor:pointer;height:30px}
+      .HeaderSearchInput{position:relative;width:430px}
+      .HeaderSearchInput input{width:100%;border-radius:0 5px 5px 0;border:.5px solid #efefef;padding:12px;font-size:14px}
+      .HeaderSearchInput a{position:absolute;cursor:pointer;right:9px;top:9px}
+      #HeaderSearchInputIcon{height:23px;width:23px}
+      .HeaderBtnsContainer{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-around;align-items:center}
+      .HeaderBtns{cursor:pointer;box-shadow:0 0 5px rgba(0,0,0,.1);border-radius:6px;margin:8px 0}
+      .HeaderBtns::after{box-shadow:0 10px 20px rgba(0,0,0,.1)}
+      .HeaderBtns a{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;align-items:center;margin:5px 10px}
+      .HeaderBtns svg{padding-right:5px;height:20px}
+      .HeaderBtns:hover{transition:all .5s ease;background-color:#666a73}
+      .HeaderHomeIcon{position:relative;text-align:center}
+      .HeaderHomeIcon::before,.HeaderHomeIcon::after{position:absolute;left:50%;opacity:0;visibility:hidden;transition:.1s ease-out}
+      .HeaderHomeIcon::before{content:"";border-width:0 8px 10px;border-style:solid;margin-left:-8px;top:50px;border-color:transparent transparent #415b76}
+      .HeaderHomeIcon::after{content:attr(data-tooltip-HeaderHomeIcon);background:#415b76;border-radius:4px;color:#fff;top:59px;width:80px;padding:5px;left:-27px}
+      .HeaderHomeIcon:hover::before,.HeaderHomeIcon:hover::after{transition:.1s ease-out;transform:translateY(-20px);opacity:1;visibility:visible}
+      .HeaderHomeIcon:active::before,.HeaderHomeIcon:active::after{opacity:0;visibility:hidden}
+      .HeaderPlusIcon{position:relative;text-align:center}
+      .HeaderPlusIcon::before,.HeaderPlusIcon::after{position:absolute;left:50%;opacity:0;visibility:hidden;transition:.1s ease-out}
+      .HeaderPlusIcon::before{content:"";border-width:0 8px 10px;border-style:solid;margin-left:-8px;top:50px;border-color:transparent transparent #415b76}
+      .HeaderPlusIcon::after{content:attr(data-tolltip-HeaderPlusIcon);background:#415b76;border-radius:4px;color:#fff;top:59px;width:70px;padding:5px;left:-25px}
+      .HeaderPlusIcon:hover::before,.HeaderPlusIcon:hover::after{transition:.1s ease-out;transform:translateY(-20px);opacity:1;visibility:visible}
+      .HeaderPlusIcon:active::before,.HeaderPlusIcon:active::after{opacity:0;visibility:hidden}
+      .HeaderNotificationsIcon{position:relative;text-align:center}
+      .HeaderNotificationsIcon::before,.HeaderNotificationsIcon::after{position:absolute;left:50%;opacity:0;visibility:hidden;transition:.1s ease-out}
+      .HeaderNotificationsIcon::before{content:"";border-width:0 8px 10px;border-style:solid;margin-left:-8px;top:50px;border-color:transparent transparent #415b76}
+      .HeaderNotificationsIcon::after{content:attr(data-tolltip-HeaderNotificationsIcon);background:#415b76;border-radius:4px;color:#fff;top:59px;width:70px;padding:5px;left:-25px}
+      .HeaderNotificationsIcon:hover::before,.HeaderNotificationsIcon:hover::after{transition:.1s ease-out;transform:translateY(-20px);opacity:1;visibility:visible}
+      .HeaderNotificationsIcon:active::before,.HeaderNotificationsIcon:active::after{opacity:0;visibility:hidden}
+      .HeaderHelpIcon{position:relative;text-align:center}
+      .HeaderHelpIcon::before,.HeaderHelpIcon::after{position:absolute;left:50%;opacity:0;visibility:hidden;transition:.1s ease-out}
+      .HeaderHelpIcon::before{content:"";border-width:0 8px 10px;border-style:solid;margin-left:-8px;top:50px;border-color:transparent transparent #415b76}
+      .HeaderHelpIcon::after{content:attr(data-tooltip-HeaderHelpIcon);background:#415b76;border-radius:4px;color:#fff;top:59px;width:40px;padding:5px;left:-13px}
+      .HeaderHelpIcon:hover::before,.HeaderHelpIcon:hover::after{transition:.1s ease-out;transform:translateY(-20px);opacity:1;visibility:visible}
+      .HeaderHelpIcon:active::before,.HeaderHelpIcon:active::after{opacity:0;visibility:hidden}
+      .HeaderConfigIcon{position:relative;text-align:center}
+      .HeaderConfigIcon::before,.HeaderConfigIcon::after{position:absolute;left:50%;opacity:0;visibility:hidden;transition:.1s ease-out}
+      .HeaderConfigIcon::before{content:"";border-width:0 8px 10px;border-style:solid;margin-left:-8px;top:50px;border-color:transparent transparent #415b76}
+      .HeaderConfigIcon::after{content:attr(data-tooltip-HeaderConfigIcon);background:#415b76;border-radius:4px;color:#fff;top:59px;width:70px;padding:5px;left:-25px}
+      .HeaderConfigIcon:hover::before,.HeaderConfigIcon:hover::after{transition:.1s ease-out;transform:translateY(-20px);opacity:1;visibility:visible}
+      .HeaderConfigIcon:active::before,.HeaderConfigIcon:active::after{opacity:0;visibility:hidden}
+      .HeaderExitIcon{position:relative;text-align:center}
+      .HeaderExitIcon::before,.HeaderExitIcon::after{position:absolute;left:50%;opacity:0;visibility:hidden;transition:.1s ease-out}
+      .HeaderExitIcon::before{content:"";border-width:0 8px 10px;border-style:solid;margin-left:-8px;top:50px;border-color:transparent transparent #415b76}
+      .HeaderExitIcon::after{content:attr(data-tooltip-HeaderExitIcon);background:#415b76;border-radius:4px;color:#fff;top:59px;width:40px;padding:5px;left:-5px}
+      .HeaderExitIcon:hover::before,.HeaderExitIcon:hover::after{transition:.1s ease-out;transform:translateY(-20px);opacity:1;visibility:visible}
+      .HeaderExitIcon:active::before,.HeaderExitIcon:active::after{opacity:0;visibility:hidden}
+
+
+
+
+      /*scrollbars################################*/
+
+        /*scrollbar custom*/
+        .scrollbar {
+          margin-left: 10px;
+          float: left;
+          height: 335px;
+          width: 99%;
+          background: #fff;
+          overflow-y: scroll;
+          margin-bottom: 25px;
+          position: relative;
+          z-index: 1;
+          margin: 5px 0 0 0;
+          padding: 10px;
+        }
+
+        .force-overflow {
+          min-height: 100px;
+          line-height: 1.5;
+          font-size: 12px;
+        }
+
+        #style-3-scrollbar::-webkit-scrollbar-track {
+          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.15);
+          background-color: #fff;
+        }
+
+        #style-3-scrollbar::-webkit-scrollbar {
+          width: 6px;
+          background-color: #fff;
+        }
+
+        #style-3-scrollbar::-webkit-scrollbar-thumb {
+          background-color: silver;
+        }
+
+
+
+      .searchWrapper {
+        width: 500px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+      }
+
+
+
+      .resultadosBuscaWrapper {
+        position: absolute;
+        width: 99%;
+        height: 350px;
+        border: 1px solid silver;
+        background-color: #fff;
+        display: block;
+      }
+
+      .resultsWrapper {
+        display: block;
+        position: relative;
+        height: auto;
+      }
+
+      .searchListItem{
+        height: 60px;
+        display: block;
+        position: relative;
+      }
+
+      .resultadoBuscaBlock {
+        display: grid;
+        width: 95%;
+        grid-template-columns: 30px 1fr;
+        grid-column-gap: 10px;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid #eee2df;
+        position: relative;
+      }
+
+      .resultadoBuscaBlock svg {
+        grid-column: 1 / 2;
+        height: 28px;
+        position: relative;
+        margin: 0 auto;
+      }
+
+      .dadosBuscaWrapper span {
+        display: block;
+        line-height: 1.2;
+      }
+
+      .dadosBuscaWrapper span strong {
+        font-size: 16px;
+      }
+
+      .searchResultTitle {
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .searchTypeBox {
+        border: 1px solid #efefef;
+        padding: 12px;
+        border-radius: 5px 0 0 5px
+      }
+
+      .glowing-border {
+          border: 2px solid #dadada;
+          border-radius: 7px;
+      }
+
+      .glowing-border:focus { 
+          outline: none;
+          border-color: #9ecaed;
+          box-shadow: 0 0 10px #9ecaed;
+      }
+
+    </style>
+
+
+
+
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <section class="HeaderContainer">
+      <div class="headerPrincipal">
+        <div class="HeaderLogo">
+          <svg id="HeaderLogo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 144 45" xml:space="preserve">
+            <rect fill="#E6E6E6" width="144" height="45"/>
+            <path fill="#7F7F7F" d="M23.3,17.5c-1.6,0-3.1,0.6-4.1,1.6c-1,1-1.6,2.4-1.6,3.9c0,2.9-0.2,5.8-0.8,8.6c-0.1,0.5,0.2,1,0.7,1.1c0.5,0.1,1-0.2,1.1-0.7c0.6-3,0.9-6,0.8-9c0-1,0.4-1.9,1-2.6c1.1-1.1,2.4-1.1,2.8-1.1c2.1,0,3.8,1.8,3.9,3.8c0,2.9-0.2,5.8-0.6,8.7c-0.1,0.5,0.3,1,0.7,1.1c0.1,0,0.1,0,0.2,0c0.5,0,0.8-0.3,0.9-0.8c0.5-3,0.7-6,0.7-9C28.9,20.1,26.4,17.6,23.3,17.5L23.3,17.5z M23.3,22.5c-0.5,0-0.9,0.4-0.9,0.9c0.1,4.2-0.5,8.4-1.6,12.4l-0.1,0.3c-0.1,0.4,0.1,1.2,0.9,1.2c0.4,0,0.8-0.3,0.9-0.7l0.1-0.3c1.2-4.2,1.8-8.5,1.7-12.9C24.2,22.9,23.7,22.5,23.3,22.5L23.3,22.5zM15,16.4c-1.5,1.8-2.2,4.1-2.2,6.4c0,2.3-0.2,4.6-0.6,6.8c-0.1,0.5,0.2,1,0.7,1.1c0.1,0,0.1,0,0.2,0c0.4,0,0.8-0.3,0.9-0.7c0.4-2.3,0.6-4.7,0.6-7.1c0-1.9,0.6-3.7,1.8-5.2c0.3-0.4,0.3-1-0.1-1.3C15.9,15.9,15.3,16,15,16.4L15,16.4z M38,22.3c0-0.9-0.1-1.9-0.3-2.8c-0.1-0.5-0.6-0.8-1.1-0.7c-0.5,0.1-0.8,0.6-0.7,1.1c0.2,0.8,0.3,1.6,0.3,2.5c0,0.5,0,0.9,0,1.3c0,0.5,0.4,0.9,0.9,0.9l0,0c0.5,0,0.9-0.4,0.9-0.9C38,23.2,38,22.8,38,22.3L38,22.3z M23.1,7.7c-4-0.1-7.8,1.4-10.5,4.2c-2.7,2.7-4.1,6.2-4.1,10c0,0.4,0,0.9,0,1.3c0,0.5,0.4,0.9,0.9,0.9h0c0.5,0,0.9-0.4,0.9-0.9c0-0.5,0-0.9,0-1.4c0-3.2,1.2-6.3,3.5-8.6c2.4-2.4,5.7-3.7,9.2-3.7c4.3,0.1,8.3,2.2,10.8,5.7c0.3,0.4,0.9,0.5,1.3,0.2c0.4-0.3,0.5-0.9,0.2-1.3C32.6,10.2,28,7.8,23.1,7.7z M23.1,12.6c-0.9,0-1.8,0.1-2.6,0.3c-0.5,0.1-0.8,0.6-0.7,1.1c0.1,0.5,0.6,0.8,1.1,0.7c0.7-0.2,1.5-0.3,2.1-0.2c4.8,0.1,8.7,3.9,8.8,8.5c0,2.3-0.1,4.6-0.3,6.8c-0.1,0.5,0.3,1,0.8,1c0,0,0.1,0,0.1,0c0.5,0,0.9-0.4,0.9-0.8c0.3-2.3,0.4-4.7,0.4-7.1C33.7,17.4,28.9,12.7,23.1,12.6L23.1,12.6z"/>
+            <path fill="#7F7F7F" d="M51,29.2h8.1V31H48.7V14H51V29.2z"/>
+            <path fill="#7F7F7F" d="M83.6,23.1c0,1.7-0.3,3.1-0.8,4.4c-0.6,1.2-1.4,2.2-2.4,2.9c-1,0.6-2.2,1-3.6,1c-1.3,0-2.5-0.3-3.6-1c-1-0.6-1.9-1.6-2.4-2.8c-0.6-1.2-0.9-2.6-0.9-4.3V22c0-1.6,0.3-3.1,0.8-4.3c0.6-1.3,1.4-2.2,2.4-2.9c1-0.7,2.2-1,3.6-1c1.4,0,2.6,0.3,3.6,1s1.9,1.6,2.4,2.9c0.6,1.3,0.8,2.7,0.8,4.4V23.1z M81.3,21.9c0-2-0.4-3.6-1.2-4.6c-0.8-1.1-1.9-1.6-3.4-1.6c-1.4,0-2.5,0.6-3.3,1.6c-0.8,1.1-1.2,2.6-1.3,4.5v1.3c0,1.9,0.4,3.5,1.2,4.6c0.8,1.1,1.9,1.7,3.4,1.7c1.5,0,2.6-0.5,3.4-1.6c0.8-1.1,1.2-2.6,1.2-4.5L81.3,21.9L81.3,21.9z"/>
+            <path fill="#7F7F7F" d="M109.1,28.8c-0.6,0.8-1.4,1.4-2.4,1.9c-1,0.4-2.2,0.6-3.6,0.6c-1.4,0-2.6-0.3-3.7-1c-1.1-0.6-1.9-1.6-2.5-2.8c-0.6-1.2-0.9-2.6-0.9-4.2v-1.5c0-2.6,0.6-4.5,1.8-6c1.2-1.4,2.9-2.1,5-2.1c1.8,0,3.2,0.5,4.3,1.4s1.8,2.2,2,3.9h-2.2c-0.4-2.3-1.8-3.4-4-3.4c-1.5,0-2.6,0.5-3.4,1.6c-0.8,1.1-1.2,2.6-1.2,4.6v1.4c0,1.9,0.4,3.4,1.3,4.5c0.9,1.1,2,1.7,3.5,1.7c0.8,0,1.6-0.1,2.2-0.3c0.6-0.2,1.2-0.5,1.6-0.9v-3.8h-3.9v-1.9h6.2L109.1,28.8L109.1,28.8z"/>
+            <path fill="#7F7F7F" d="M135.5,23.1c0,1.7-0.3,3.1-0.8,4.4c-0.6,1.2-1.4,2.2-2.4,2.9c-1,0.6-2.2,1-3.6,1c-1.3,0-2.5-0.3-3.6-1c-1-0.6-1.9-1.6-2.4-2.8c-0.6-1.2-0.9-2.6-0.9-4.3V22c0-1.6,0.3-3.1,0.8-4.3c0.6-1.3,1.4-2.2,2.4-2.9s2.2-1,3.6-1c1.4,0,2.6,0.3,3.6,1c1,0.6,1.9,1.6,2.4,2.9c0.6,1.3,0.8,2.7,0.8,4.4L135.5,23.1L135.5,23.1z M133.3,21.9c0-2-0.4-3.6-1.2-4.6c-0.8-1.1-1.9-1.6-3.4-1.6c-1.4,0-2.5,0.6-3.3,1.6c-0.8,1.1-1.2,2.6-1.3,4.5v1.3c0,1.9,0.4,3.5,1.2,4.6c0.8,1.1,1.9,1.7,3.4,1.7c1.5,0,2.6-0.5,3.4-1.6c0.8-1.1,1.2-2.6,1.2-4.5L133.3,21.9L133.3,21.9z"/>
+          </svg>
+        </div>
+        <div class="HeaderHomeIcon" data-tooltip-HeaderHomeIcon="Voltar ao Início">
+          <a href="">
+            <svg id="HeaderHomeIcon" class="HeaderPrincipalIcons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path fill="#8e9aaf" d="M488 312.7V456c0 13.3-10.7 24-24 24H348c-6.6 0-12-5.4-12-12V356c0-6.6-5.4-12-12-12h-72c-6.6 0-12 5.4-12 12v112c0 6.6-5.4 12-12 12H112c-13.3 0-24-10.7-24-24V312.7c0-3.6 1.6-7 4.4-9.3l188-154.8c4.4-3.6 10.8-3.6 15.3 0l188 154.8c2.7 2.3 4.3 5.7 4.3 9.3zm83.6-60.9L488 182.9V44.4c0-6.6-5.4-12-12-12h-56c-6.6 0-12 5.4-12 12V117l-89.5-73.7c-17.7-14.6-43.3-14.6-61 0L4.4 251.8c-5.1 4.2-5.8 11.8-1.6 16.9l25.5 31c4.2 5.1 11.8 5.8 16.9 1.6l235.2-193.7c4.4-3.6 10.8-3.6 15.3 0l235.2 193.7c5.1 4.2 12.7 3.5 16.9-1.6l25.5-31c4.2-5.2 3.4-12.7-1.7-16.9z"/>
+            </svg>
+          </a>
+        </div>
+        <div class="searchWrapper">
+        <select name="searchTypeList" form="searchType" class="searchTypeBox">
+          <option value="tipo1">Texto 1</option>
+          <option value="tipo2">Texto 2</option>
+          <option value="tipo3">Texto 3</option>
+          <option value="tipo4">Texto 5</option>
+          <option value="tipo1">Texto 6</option>
+          <option value="tipo2">Texto 7</option>
+          <option value="tipo3">Texto 8</option>
+          <option value="tipo4">Texto 9</option>
+          <option value="tipo1">Texto 10</option>
+          <option value="tipo2">Texto 11</option>
+          <option value="tipo3">Texto 12</option>
+          <option value="tipo4">Texto 13</option>
+        </select>
+        <div class="HeaderSearchInput">
+          <input type="text" placeholder="Busca" class="glowing-border">
+          <a href="">
+            <svg id="HeaderSearchInputIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path fill="#b3b3b3" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/>
+            </svg>
+          </a>
+
+
+
+
+
+          <!-- tabela resultados busca ##################################################### -->
+          <div class="resultadosBuscaWrapper">
+            <div class="scrollbar" id="style-3-scrollbar">
+              <div class="force-overflow">
+                <ul class="resultsWrapper">
+                  <!-- item busca @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                  <li class="searchListItem">
+                    <a href="" class="resultadoBuscaBlock">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                        <path fill="#eee2df" d="M480 256c53 0 96-43 96-96s-43-96-96-96-96 43-96 96 43 96 96 96zm0-160c35.3 0 64 28.7 64 64s-28.7 64-64 64-64-28.7-64-64 28.7-64 64-64zM192 256c61.9 0 112-50.1 112-112S253.9 32 192 32 80 82.1 80 144s50.1 112 112 112zm0-192c44.1 0 80 35.9 80 80s-35.9 80-80 80-80-35.9-80-80 35.9-80 80-80zm80.1 212c-33.4 0-41.7 12-80.1 12-38.4 0-46.7-12-80.1-12-36.3 0-71.6 16.2-92.3 46.9C7.2 341.3 0 363.4 0 387.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-44.8c0-23.8-7.2-45.9-19.6-64.3-20.7-30.7-56-46.9-92.3-46.9zM352 432c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16v-44.8c0-16.6 4.9-32.7 14.1-46.4 13.8-20.5 38.4-32.8 65.7-32.8 27.4 0 37.2 12 80.2 12s52.8-12 80.1-12c27.3 0 51.9 12.3 65.7 32.8 9.2 13.7 14.1 29.8 14.1 46.4V432zm271.7-114.9C606.4 291.5 577 278 546.8 278c-27.8 0-34.8 10-66.8 10s-39-10-66.8-10c-13.2 0-26.1 3-38.1 8.1 15.2 15.4 18.5 23.6 20.2 26.6 5.7-1.6 11.6-2.6 17.9-2.6 21.8 0 30 10 66.8 10s45-10 66.8-10c21 0 39.8 9.3 50.4 25 7.1 10.5 10.9 22.9 10.9 35.7V408c0 4.4-3.6 8-8 8H416c0 17.7.3 22.5-1.6 32H600c22.1 0 40-17.9 40-40v-37.3c0-19.9-6-38.3-16.3-53.6z"></path>
+                      </svg>
+                      <div class="dadosBuscaWrapper">
+                        <span class="searchResultTitle"><strong>Contato:</strong> Texto título</span>
+                        <span class="searchResultText">texto linha 1</span>
+                        <span class="searchResultText">texto linha 1</span>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- fim itam busca @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+                  <!-- item busca @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                  <li class="searchListItem">
+                    <a href="" class="resultadoBuscaBlock">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path fill="#eee2df" d="M464 64H48C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h416c8.8 0 16 7.2 16 16v41.4c-21.9 18.5-53.2 44-150.6 121.3-16.9 13.4-50.2 45.7-73.4 45.3-23.2.4-56.6-31.9-73.4-45.3C85.2 197.4 53.9 171.9 32 153.4V112c0-8.8 7.2-16 16-16zm416 320H48c-8.8 0-16-7.2-16-16V195c22.8 18.7 58.8 47.6 130.7 104.7 20.5 16.4 56.7 52.5 93.3 52.3 36.4.3 72.3-35.5 93.3-52.3 71.9-57.1 107.9-86 130.7-104.7v205c0 8.8-7.2 16-16 16z"></path>
+                      </svg>
+                      <div class="dadosBuscaWrapper">
+                        <span class="searchResultTitle"><strong>Mailing:</strong> Texto título</span>
+                        <span class="searchResultText">texto linha 1</span>
+                        <span class="searchResultText">texto linha 1</span>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- fim itam busca @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+                  <!-- item busca @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                  <li class="searchListItem">
+                    <a href="" class="resultadoBuscaBlock">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 213 211.6" xml:space="preserve">
+                        <circle fill="none" stroke="#EEE2DF" stroke-width="19" stroke-miterlimit="10" cx="90.5" cy="121.1" r="81"></circle>
+                        <circle fill="none" stroke="#EEE2DF" stroke-width="19" stroke-miterlimit="10" cx="90.5" cy="121.1" r="38.8"></circle>
+                          <path id="dardo50" fill="#EEE2DF" d="M181.3,58.1c-4.3-0.9-8.6-1.5-12.8-2.7c-2.3-0.7-3.5-0.4-4.8,1.7c-10.3,15.3-21.7,29.7-34.7,42.9c-2.8,2.8-5.8,5.5-9.8,6.5c-0.8,0.2-1.8,0.5-2.6,0.3c-2.6-0.8-4.1,0.7-5.7,2.3c-4,3.9-7.9,7.9-12.2,11.4c-2.3,1.8-5.4,2.7-8.1,3.8c-1.5,0.6-2,0-1.7-1.6c1.1-4.9,3.8-8.9,7.3-12.4c3.1-3.1,6.2-6.2,9.3-9.3c1-1,1.3-1.9,1.1-3.4c-0.6-3.4,0.6-6.5,2.8-8.8c4.3-4.7,8.6-9.5,13.5-13.5c11.1-9,22.5-17.6,33.8-26.2c1.5-1.1,1.7-2,1.3-3.7c-1-4.3-1.9-8.7-2.3-13.1c-0.7-7.7,2.3-14.2,7.6-19.7c3.4-3.6,6.9-7.1,10.5-10.5c3.6-3.5,7.5-2.4,8.9,2.4c1.7,5.8,3.3,11.6,4.8,17.5c0.5,2.2,1.5,3.3,3.8,3.9c5.9,1.4,11.7,3.1,17.5,4.8c4.8,1.4,5.9,5.3,2.5,8.9c-3.6,3.7-7.3,7.4-11,10.9C194.6,55.5,188.8,57.6,181.3,58.1z"></path>
+                      </svg>
+                      <div class="dadosBuscaWrapper">
+                        <span class="searchResultTitle"><strong>Target:</strong> Texto título</span>
+                        <span class="searchResultText">texto linha 1</span>
+                        <span class="searchResultText">texto linha 1</span>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- fim itam busca @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+
+                  <!-- item busca @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                  <li class="searchListItem">
+                    <a href="" class="resultadoBuscaBlock">
+                      <svg fill="#eee2df" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path d="M313.6 288c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4zM416 464c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16v-41.6C32 365.9 77.9 320 134.4 320c19.6 0 39.1 16 89.6 16 50.4 0 70-16 89.6-16 56.5 0 102.4 45.9 102.4 102.4V464zM224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"/>
+                      </svg>
+                      <div class="dadosBuscaWrapper">
+                        <span class="searchResultTitle"><strong>Jornalista:</strong> Texto título</span>
+                        <span class="searchResultText">texto linha 1</span>
+                        <span class="searchResultText">texto linha 1</span>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- fim itam busca @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+
+                  <!-- item busca @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                  <li class="searchListItem">
+                    <a href="" class="resultadoBuscaBlock">
+                      <svg fill="#eee2df" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm0-224c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96zm91.9 272.2L276.2 442l-33.9-101.7 25-25c10.1-10.1 2.9-27.3-11.3-27.3h-64c-14.3 0-21.4 17.2-11.3 27.3l25 25L171.8 442l-39.7-137.7C58.9 305.5 0 365 0 438.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-25.6c0-73.4-58.9-132.9-132.1-134.2zM48 480c-8.8 0-16-7.2-16-16v-25.6c0-47.2 32.8-87.5 76.9-98.9L149.5 480H48zm144.9 0l31.1-93.4 31.1 93.4h-62.2zM416 464c0 8.8-7.2 16-16 16H298.5L339 339.5c44.1 11.4 76.9 51.7 76.9 98.9V464z"/>
+                      </svg>
+                      <div class="dadosBuscaWrapper">
+                        <span class="searchResultTitle"><strong>Governo:</strong> Texto título</span>
+                        <span class="searchResultText">texto linha 1</span>
+                        <span class="searchResultText">texto linha 1</span>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- fim itam busca @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+                  <!-- item busca @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                  <li class="searchListItem">
+                    <a href="" class="resultadoBuscaBlock">
+                      <svg fill="#eee2df" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path d="M256 32C114.6 32 0 125.1 0 240c0 47.6 19.9 91.2 52.9 126.3C38 405.7 7 439.1 6.5 439.5c-6.6 7-8.4 17.2-4.6 26S14.4 480 24 480c61.5 0 110-25.7 139.1-46.3C192 442.8 223.2 448 256 448c141.4 0 256-93.1 256-208S397.4 32 256 32zm0 384c-28.3 0-56.3-4.3-83.2-12.8l-15.2-4.8-13 9.2c-23 16.3-58.5 35.3-102.6 39.6 12-15.1 29.8-40.4 40.8-69.6l7.1-18.7-13.7-14.6C47.3 313.7 32 277.6 32 240c0-97 100.5-176 224-176s224 79 224 176-100.5 176-224 176zm75.8-130.7C313 307.4 285.4 320 256 320s-57-12.6-75.8-34.6c-5.7-6.7-15.8-7.4-22.5-1.8-6.8 5.8-7.5 15.8-1.8 22.6C180.7 335.3 217.2 352 256 352s75.3-16.7 100.2-45.9c5.8-6.7 4.9-16.8-1.8-22.6-6.7-5.7-16.8-4.9-22.6 1.8zM192 216c13.3 0 24-10.7 24-24s-10.7-24-24-24-24 10.7-24 24 10.7 24 24 24zm128 0c13.3 0 24-10.7 24-24s-10.7-24-24-24-24 10.7-24 24 10.7 24 24 24z"/>
+                      </svg>
+                      <div class="dadosBuscaWrapper">
+                        <span class="searchResultTitle"><strong>Influencer:</strong> Texto título</span>
+                        <span class="searchResultText">texto linha 1</span>
+                        <span class="searchResultText">texto linha 1</span>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- fim itam busca @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+                  <!-- item busca @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                  <li class="searchListItem">
+                    <a href="" class="resultadoBuscaBlock">
+                      <svg fill="#eee2df" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 53.4 71.1" xml:space="preserve">
+                        <path d="M51.4,13.6L39.7,2c-1.2-1.2-2.9-2-4.7-2H6.7C3,0,0,3,0,6.7v57.7c0,3.7,3,6.7,6.7,6.7h40c3.7,0,6.7-3,6.7-6.7v-46C53.3,16.5,52.6,14.8,51.4,13.6z M48.2,16.7c0.3,0.3,0.5,0.6,0.6,1H35.6V4.5c0.4,0.1,0.7,0.3,1,0.6L48.2,16.7z M46.7,66.6h-40c-1.2,0-2.2-1-2.2-2.2V6.7c0-1.2,1-2.2,2.2-2.2h24.4v14.4c0,1.8,1.5,3.3,3.3,3.3h14.4v42.1C48.9,65.6,47.9,66.6,46.7,66.6zM30.5,34.3l4.1,4.1c0.2,0.2,0.2,0.6,0,0.9L19,54.9l-4.2,0.6c-0.8,0.1-1.5-0.6-1.4-1.4l0.6-4.2l15.6-15.6C29.8,34,30.2,34,30.5,34.3L30.5,34.3z M39.4,34.5l-2.3,2.3c-0.2,0.2-0.6,0.2-0.9,0l-4.1-4.1c-0.2-0.2-0.2-0.6,0-0.9l2.3-2.3c0.8-0.8,2.1-0.8,2.9,0l2.1,2.1C40.2,32.3,40.2,33.6,39.4,34.5z"/>
+                      </svg>
+                      <div class="dadosBuscaWrapper">
+                        <span class="searchResultTitle"><strong>Release:</strong> Texto título</span>
+                        <span class="searchResultText">texto linha 1</span>
+                        <span class="searchResultText">texto linha 1</span>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- fim itam busca @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+                  <!-- item busca @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                  <li class="searchListItem">
+                    <a href="" class="resultadoBuscaBlock">
+                      <svg id="iconMidia" class="headerIconsBtn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                        <path fill="#eee2df" d="M544 192V32c0-17.7-14.3-32-32-32-65 56-174 128-304 128H48c-26.5 0-48 21.5-48 48v96c0 26.5 21.5 48 48 48h16.8c-5.3 58.6 15 107 28.9 151.6 1.5 5 4.3 9.5 8 13.2C119 502.1 142.8 512 167 512c31.8 0 60.9-17 75.5-47.7 7-14.7 1.9-32.3-11.9-40.9-27.9-17.4-32-22.5-26.8-31.5 6.9-12.1 5.2-27.3-4.2-37.6-5.3-5.8-1.3-27.4 11-34.3 128.9.9 236.9 72.4 301.5 128 17.7 0 32-14.3 32-32V256c17.7 0 32-14.3 32-32s-14.4-32-32.1-32zM213.7 450.5c-17.4 36.7-63.5 37.4-89.4 11.6C110.5 417.6 91.4 372.9 97 320h73.7c-8.3 19.2-7.6 42.1 5.3 56-19.9 34.7 8 56 37.7 74.5zM32 272v-96c0-8.8 7.2-16 16-16h176v128H48c-8.8 0-16-7.2-16-16zm480 134.4c-36.6-29.1-74.7-53.4-113.7-72.2-47.3-22.9-95-37.4-142.3-43.2V157c47.3-5.9 95-20.3 142.3-43.2 38.9-18.9 77.1-43.1 113.7-72.2v364.8z"></path>
+                      </svg>
+                      <div class="dadosBuscaWrapper">
+                        <span class="searchResultTitle"><strong>Midia:</strong> Texto título</span>
+                        <span class="searchResultText">texto linha 1</span>
+                        <span class="searchResultText">texto linha 1</span>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- fim itam busca @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+                  <!-- item busca @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                  <li class="searchListItem">
+                    <a href="" class="resultadoBuscaBlock">
+                      <svg fill="#eee2df" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                        <path d="M560.83 135.96l-24.79-24.79c-20.23-20.24-53-20.26-73.26 0L384 189.72v-57.75c0-12.7-5.1-25-14.1-33.99L286.02 14.1c-9-9-21.2-14.1-33.89-14.1H47.99C21.5.1 0 21.6 0 48.09v415.92C0 490.5 21.5 512 47.99 512h288.02c26.49 0 47.99-21.5 47.99-47.99v-80.54c6.29-4.68 12.62-9.35 18.18-14.95l158.64-159.3c9.79-9.78 15.17-22.79 15.17-36.63s-5.38-26.84-15.16-36.63zM256.03 32.59c2.8.7 5.3 2.1 7.4 4.2l83.88 83.88c2.1 2.1 3.5 4.6 4.2 7.4h-95.48V32.59zm95.98 431.42c0 8.8-7.2 16-16 16H47.99c-8.8 0-16-7.2-16-16V48.09c0-8.8 7.2-16.09 16-16.09h176.04v104.07c0 13.3 10.7 23.93 24 23.93h103.98v61.53l-48.51 48.24c-30.14 29.96-47.42 71.51-47.47 114-3.93-.29-7.47-2.42-9.36-6.27-11.97-23.86-46.25-30.34-66-14.17l-13.88-41.62c-3.28-9.81-12.44-16.41-22.78-16.41s-19.5 6.59-22.78 16.41L103 376.36c-1.5 4.58-5.78 7.64-10.59 7.64H80c-8.84 0-16 7.16-16 16s7.16 16 16 16h12.41c18.62 0 35.09-11.88 40.97-29.53L144 354.58l16.81 50.48c4.54 13.51 23.14 14.83 29.5 2.08l7.66-15.33c4.01-8.07 15.8-8.59 20.22.34C225.44 406.61 239.9 415.7 256 416h32c22.05-.01 43.95-4.9 64.01-13.6v61.61zm27.48-118.05A129.012 129.012 0 0 1 288 384v-.03c0-34.35 13.7-67.29 38.06-91.51l120.55-119.87 52.8 52.8-119.92 120.57zM538.2 186.6l-21.19 21.19-52.8-52.8 21.2-21.19c7.73-7.73 20.27-7.74 28.01 0l24.79 24.79c7.72 7.73 7.72 20.27-.01 28.01z"/>
+                      </svg>
+                      <div class="dadosBuscaWrapper">
+                        <span class="searchResultTitle"><strong>Tema:</strong> Texto título</span>
+                        <span class="searchResultText">texto linha 1</span>
+                        <span class="searchResultText">texto linha 1</span>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- fim itam busca @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+                  <!-- item busca @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                  <li class="searchListItem">
+                    <a href="" class="resultadoBuscaBlock">
+                      <svg fill="#eee2df" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                        <path d="M312 128c0-13.26-10.75-24-24-24s-24 10.74-24 24c0 13.25 10.75 24 24 24s24-10.74 24-24zm248.02 32c-1.96 0-3.98.37-5.96 1.16L384.01 224H384l-10.27-3.62c23.3-34.86 42.28-71.2 42.28-97.33C416 55.09 358.69 0 288 0S160 55.09 160 123.05c0 11.8 4.02 25.75 10.39 40.64L20.12 215.96C7.97 220.81 0 232.58 0 245.67v250.32C0 505.17 7.53 512 15.99 512c1.96 0 3.97-.37 5.96-1.16L192 448l172 60.71a63.98 63.98 0 0 0 40.05.15l151.83-52.81A31.996 31.996 0 0 0 576 426.34V176.02c0-9.19-7.53-16.02-15.98-16.02zM176 419.8L31.91 473.05l-1.28-226.87L176 195.61V419.8zM288 32c52.94 0 96 40.84 96 91.05 0 27-38.09 88.89-96 156.77-57.9-67.88-96-129.77-96-156.77C192 72.84 235.06 32 288 32zm80 444.19l-160-56.48V228.82c24.42 35.27 52.14 68 67.71 85.66 3.24 3.68 7.77 5.52 12.29 5.52s9.05-1.84 12.29-5.52c12.76-14.47 33.7-39.11 54.28-66.94l13.42 4.74v223.91zm32 .2V252.21l144.09-53.26 1.28 226.87L400 476.39z"/>
+                      </svg>
+                      <div class="dadosBuscaWrapper">
+                        <span class="searchResultTitle"><strong>Município:</strong> Texto título</span>
+                        <span class="searchResultText">texto linha 1</span>
+                        <span class="searchResultText">texto linha 1</span>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- fim itam busca @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+                  <!-- item busca @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                  <li class="searchListItem">
+                    <a href="" class="resultadoBuscaBlock">
+                      <svg fill="#eee2df" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                        <path d="M192 96c-52.935 0-96 43.065-96 96s43.065 96 96 96 96-43.065 96-96-43.065-96-96-96zm0 160c-35.29 0-64-28.71-64-64s28.71-64 64-64 64 28.71 64 64-28.71 64-64 64zm0-256C85.961 0 0 85.961 0 192c0 77.413 26.97 99.031 172.268 309.67 9.534 13.772 29.929 13.774 39.465 0C357.03 291.031 384 269.413 384 192 384 85.961 298.039 0 192 0zm0 473.931C52.705 272.488 32 256.494 32 192c0-42.738 16.643-82.917 46.863-113.137S149.262 32 192 32s82.917 16.643 113.137 46.863S352 149.262 352 192c0 64.49-20.692 80.47-160 281.931z"/>
+                      </svg>
+                      <div class="dadosBuscaWrapper">
+                        <span class="searchResultTitle"><strong>Estado:</strong> Texto título</span>
+                        <span class="searchResultText">texto linha 1</span>
+                        <span class="searchResultText">texto linha 1</span>
+                      </div>
+                    </a>
+                  </li>
+                  <!-- fim itam busca @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- tabela resultados busca ##################################################### -->
+
+
+
+
+
+
+        </div>
+
+      </div>
+        <div class="HeaderPlusIcon" data-tolltip-HeaderPlusIcon="Menu rápido">
+          <a href="">
+            <svg id="HeaderPlusIcon" class="HeaderPrincipalIcons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path fill="#8e9aaf" d="M384 240v32c0 6.6-5.4 12-12 12h-88v88c0 6.6-5.4 12-12 12h-32c-6.6 0-12-5.4-12-12v-88h-88c-6.6 0-12-5.4-12-12v-32c0-6.6 5.4-12 12-12h88v-88c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v88h88c6.6 0 12 5.4 12 12zm120 16c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-48 0c0-110.5-89.5-200-200-200S56 145.5 56 256s89.5 200 200 200 200-89.5 200-200z"/>
+            </svg>
+          </a>
+        </div>
+        <div class="HeaderNotificationsIcon" data-tolltip-HeaderNotificationsIcon="Notificações">
+          <a href="">
+            <svg id="HeaderNotificationsIcon" class="HeaderPrincipalIcons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path fill="#eee2df" d="M439.39 362.29c-19.32-20.76-55.47-51.99-55.47-154.29 0-77.7-54.48-139.9-127.94-155.16V32c0-17.67-14.32-32-31.98-32s-31.98 14.33-31.98 32v20.84C118.56 68.1 64.08 130.3 64.08 208c0 102.3-36.15 133.53-55.47 154.29-6 6.45-8.66 14.16-8.61 21.71.11 16.4 12.98 32 32.1 32h383.8c19.12 0 32-15.6 32.1-32 .05-7.55-2.61-15.27-8.61-21.71zM67.53 368c21.22-27.97 44.42-74.33 44.53-159.42 0-.2-.06-.38-.06-.58 0-61.86 50.14-112 112-112s112 50.14 112 112c0 .2-.06.38-.06.58.11 85.1 23.31 131.46 44.53 159.42H67.53zM224 512c35.32 0 63.97-28.65 63.97-64H160.03c0 35.35 28.65 64 63.97 64z"/>
+            </svg>
+          </a>
+        </div>
+        <div class="HeaderHelpIcon" data-tooltip-HeaderHelpIcon="Ajuda">
+          <a href="">
+            <svg id="HeaderHelpIcon" class="HeaderPrincipalIcons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+              <path fill="#eee2df" d="M202.021 0C122.202 0 70.503 32.703 29.914 91.026c-7.363 10.58-5.093 25.086 5.178 32.874l43.138 32.709c10.373 7.865 25.132 6.026 33.253-4.148 25.049-31.381 43.63-49.449 82.757-49.449 30.764 0 68.816 19.799 68.816 49.631 0 22.552-18.617 34.134-48.993 51.164-35.423 19.86-82.299 44.576-82.299 106.405V320c0 13.255 10.745 24 24 24h72.471c13.255 0 24-10.745 24-24v-5.773c0-42.86 125.268-44.645 125.268-160.627C377.504 66.256 286.902 0 202.021 0zM192 373.459c-38.196 0-69.271 31.075-69.271 69.271 0 38.195 31.075 69.27 69.271 69.27s69.271-31.075 69.271-69.271-31.075-69.27-69.271-69.27z"/>
+            </svg>
+          </a>
+        </div>
+        <div class="HeaderConfigIcon" data-tooltip-HeaderConfigIcon="Configurações">
+          <a href="">
+            <svg id="HeaderConfigIcon" class="HeaderPrincipalIcons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path fill="#eee2df" d="M24 13.616v-3.232c-1.651-.587-2.694-.752-3.219-2.019v-.001c-.527-1.271.1-2.134.847-3.707l-2.285-2.285c-1.561.742-2.433 1.375-3.707.847h-.001c-1.269-.526-1.435-1.576-2.019-3.219h-3.232c-.582 1.635-.749 2.692-2.019 3.219h-.001c-1.271.528-2.132-.098-3.707-.847l-2.285 2.285c.745 1.568 1.375 2.434.847 3.707-.527 1.271-1.584 1.438-3.219 2.02v3.232c1.632.58 2.692.749 3.219 2.019.53 1.282-.114 2.166-.847 3.707l2.285 2.286c1.562-.743 2.434-1.375 3.707-.847h.001c1.27.526 1.436 1.579 2.019 3.219h3.232c.582-1.636.75-2.69 2.027-3.222h.001c1.262-.524 2.12.101 3.698.851l2.285-2.286c-.744-1.563-1.375-2.433-.848-3.706.527-1.271 1.588-1.44 3.221-2.021zm-12 2.384c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z"/>
+            </svg>
+          </a>
+        </div>
+        <div class="HeaderExitIcon" data-tooltip-HeaderExitIcon="Sair">
+          <a href="">
+            <svg id="HeaderExitIcon" class="HeaderPrincipalIcons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 284.9 213.8" xml:space="preserve">
+              <path fill="#EEE2DF" d="M53.4,0h46.7c3.7,0,6.7,3,6.7,6.7v13.4c0,3.7-3,6.7-6.7,6.7H53.4c-14.7,0-26.7,12-26.7,26.7v106.8c0,14.7,12,26.7,26.7,26.7h46.7c3.7,0,6.7,3,6.7,6.7v13.4c0,3.7-3,6.7-6.7,6.7H53.4C23.9,213.8,0,189.9,0,160.4v-107C0,23.9,23.9,0,53.4,0z M182,10.9l-10.9,10.9c-2.7,2.7-2.6,7,0.1,9.5l62.9,61.1H95.7c-3.7,0-6.7,3-6.7,6.7v15.5c0,3.7,3,6.7,6.7,6.7h138.4l-62.9,61c-2.7,2.6-2.7,6.9-0.1,9.5l10.9,10.9c2.6,2.6,6.8,2.6,9.5,0l91.5-91.2c2.6-2.6,2.6-6.8,0-9.5l-91.5-91.2C188.8,8.3,184.6,8.3,182,10.9L182,10.9z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="HeaderBtnsContainer">
+        <div class="btnContatos HeaderBtns">
+          <a href="">
+            <svg id="iconContatos" class="headerIconsBtn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+              <path fill="#eee2df" d="M480 256c53 0 96-43 96-96s-43-96-96-96-96 43-96 96 43 96 96 96zm0-160c35.3 0 64 28.7 64 64s-28.7 64-64 64-64-28.7-64-64 28.7-64 64-64zM192 256c61.9 0 112-50.1 112-112S253.9 32 192 32 80 82.1 80 144s50.1 112 112 112zm0-192c44.1 0 80 35.9 80 80s-35.9 80-80 80-80-35.9-80-80 35.9-80 80-80zm80.1 212c-33.4 0-41.7 12-80.1 12-38.4 0-46.7-12-80.1-12-36.3 0-71.6 16.2-92.3 46.9C7.2 341.3 0 363.4 0 387.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-44.8c0-23.8-7.2-45.9-19.6-64.3-20.7-30.7-56-46.9-92.3-46.9zM352 432c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16v-44.8c0-16.6 4.9-32.7 14.1-46.4 13.8-20.5 38.4-32.8 65.7-32.8 27.4 0 37.2 12 80.2 12s52.8-12 80.1-12c27.3 0 51.9 12.3 65.7 32.8 9.2 13.7 14.1 29.8 14.1 46.4V432zm271.7-114.9C606.4 291.5 577 278 546.8 278c-27.8 0-34.8 10-66.8 10s-39-10-66.8-10c-13.2 0-26.1 3-38.1 8.1 15.2 15.4 18.5 23.6 20.2 26.6 5.7-1.6 11.6-2.6 17.9-2.6 21.8 0 30 10 66.8 10s45-10 66.8-10c21 0 39.8 9.3 50.4 25 7.1 10.5 10.9 22.9 10.9 35.7V408c0 4.4-3.6 8-8 8H416c0 17.7.3 22.5-1.6 32H600c22.1 0 40-17.9 40-40v-37.3c0-19.9-6-38.3-16.3-53.6z"/>
+            </svg>
+            <span>CONTATOS</span>
+          </a>
+        </div>
+        <div class="btnMidia HeaderBtns">
+          <a href="">
+            <svg id="iconMidia" class="headerIconsBtn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path fill="#eee2df" d="M544 192V32c0-17.7-14.3-32-32-32-65 56-174 128-304 128H48c-26.5 0-48 21.5-48 48v96c0 26.5 21.5 48 48 48h16.8c-5.3 58.6 15 107 28.9 151.6 1.5 5 4.3 9.5 8 13.2C119 502.1 142.8 512 167 512c31.8 0 60.9-17 75.5-47.7 7-14.7 1.9-32.3-11.9-40.9-27.9-17.4-32-22.5-26.8-31.5 6.9-12.1 5.2-27.3-4.2-37.6-5.3-5.8-1.3-27.4 11-34.3 128.9.9 236.9 72.4 301.5 128 17.7 0 32-14.3 32-32V256c17.7 0 32-14.3 32-32s-14.4-32-32.1-32zM213.7 450.5c-17.4 36.7-63.5 37.4-89.4 11.6C110.5 417.6 91.4 372.9 97 320h73.7c-8.3 19.2-7.6 42.1 5.3 56-19.9 34.7 8 56 37.7 74.5zM32 272v-96c0-8.8 7.2-16 16-16h176v128H48c-8.8 0-16-7.2-16-16zm480 134.4c-36.6-29.1-74.7-53.4-113.7-72.2-47.3-22.9-95-37.4-142.3-43.2V157c47.3-5.9 95-20.3 142.3-43.2 38.9-18.9 77.1-43.1 113.7-72.2v364.8z"/>
+            </svg>
+            <span>MIDIA</span>
+          </a>
+        </div>
+        <div class="btnMailing HeaderBtns">
+          <a href="">
+            <svg id="iconMailing" class="headerIconsBtn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path fill="#eee2df" d="M464 64H48C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h416c8.8 0 16 7.2 16 16v41.4c-21.9 18.5-53.2 44-150.6 121.3-16.9 13.4-50.2 45.7-73.4 45.3-23.2.4-56.6-31.9-73.4-45.3C85.2 197.4 53.9 171.9 32 153.4V112c0-8.8 7.2-16 16-16zm416 320H48c-8.8 0-16-7.2-16-16V195c22.8 18.7 58.8 47.6 130.7 104.7 20.5 16.4 56.7 52.5 93.3 52.3 36.4.3 72.3-35.5 93.3-52.3 71.9-57.1 107.9-86 130.7-104.7v205c0 8.8-7.2 16-16 16z"/>
+            </svg>
+            <span>MAILING</span>
+          </a>
+        </div>
+        <div class="btnPlanejamento HeaderBtns">
+          <a href="">
+            <svg id="iconPlanejamento" class="headerIconsBtn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path fill="#eee2df" d="M400 64h-48V12c0-6.627-5.373-12-12-12h-8c-6.627 0-12 5.373-12 12v52H128V12c0-6.627-5.373-12-12-12h-8c-6.627 0-12 5.373-12 12v52H48C21.49 64 0 85.49 0 112v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zM48 96h352c8.822 0 16 7.178 16 16v48H32v-48c0-8.822 7.178-16 16-16zm352 384H48c-8.822 0-16-7.178-16-16V192h384v272c0 8.822-7.178 16-16 16zm-66.467-194.937l-134.791 133.71c-4.7 4.663-12.288 4.642-16.963-.046l-67.358-67.552c-4.683-4.697-4.672-12.301.024-16.985l8.505-8.48c4.697-4.683 12.301-4.672 16.984.024l50.442 50.587 117.782-116.837c4.709-4.671 12.313-4.641 16.985.068l8.458 8.527c4.672 4.709 4.641 12.313-.068 16.984z"/>
+            </svg>
+            <span>PLANEJAMENTO</span>
+          </a>
+        </div>
+        <div class="btnConteudo HeaderBtns">
+          <a href="">
+            <svg id="iconConteudo" class="headerIconsBtn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path fill="#eee2df" d="M560.83 135.96l-24.79-24.79c-20.23-20.24-53-20.26-73.26 0L384 189.72v-57.75c0-12.7-5.1-25-14.1-33.99L286.02 14.1c-9-9-21.2-14.1-33.89-14.1H47.99C21.5.1 0 21.6 0 48.09v415.92C0 490.5 21.5 512 47.99 512h288.02c26.49 0 47.99-21.5 47.99-47.99v-80.54c6.29-4.68 12.62-9.35 18.18-14.95l158.64-159.3c9.79-9.78 15.17-22.79 15.17-36.63s-5.38-26.84-15.16-36.63zM256.03 32.59c2.8.7 5.3 2.1 7.4 4.2l83.88 83.88c2.1 2.1 3.5 4.6 4.2 7.4h-95.48V32.59zm95.98 431.42c0 8.8-7.2 16-16 16H47.99c-8.8 0-16-7.2-16-16V48.09c0-8.8 7.2-16.09 16-16.09h176.04v104.07c0 13.3 10.7 23.93 24 23.93h103.98v61.53l-48.51 48.24c-30.14 29.96-47.42 71.51-47.47 114-3.93-.29-7.47-2.42-9.36-6.27-11.97-23.86-46.25-30.34-66-14.17l-13.88-41.62c-3.28-9.81-12.44-16.41-22.78-16.41s-19.5 6.59-22.78 16.41L103 376.36c-1.5 4.58-5.78 7.64-10.59 7.64H80c-8.84 0-16 7.16-16 16s7.16 16 16 16h12.41c18.62 0 35.09-11.88 40.97-29.53L144 354.58l16.81 50.48c4.54 13.51 23.14 14.83 29.5 2.08l7.66-15.33c4.01-8.07 15.8-8.59 20.22.34C225.44 406.61 239.9 415.7 256 416h32c22.05-.01 43.95-4.9 64.01-13.6v61.61zm27.48-118.05A129.012 129.012 0 0 1 288 384v-.03c0-34.35 13.7-67.29 38.06-91.51l120.55-119.87 52.8 52.8-119.92 120.57zM538.2 186.6l-21.19 21.19-52.8-52.8 21.2-21.19c7.73-7.73 20.27-7.74 28.01 0l24.79 24.79c7.72 7.73 7.72 20.27-.01 28.01z"/>
+            </svg>
+            <span>CONTEÚDO</span>
+          </a>
+        </div>
+        <div class="btnMonitoramento HeaderBtns">
+          <a href="">
+            <svg id="iconMonitoramento" class="headerIconsBtn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path fill="#eee2df" d="M500 416c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H12c-6.6 0-12-5.4-12-12V76c0-6.6 5.4-12 12-12h8c6.6 0 12 5.4 12 12v340h468zm-340-70v-84c0-3.3-2.7-6-6-6h-20c-3.3 0-6 2.7-6 6v84c0 3.3 2.7 6 6 6h20c3.3 0 6-2.7 6-6zm288 0V102c0-3.3-2.7-6-6-6h-20c-3.3 0-6 2.7-6 6v244c0 3.3 2.7 6 6 6h20c3.3 0 6-2.7 6-6zm-96 0V198c0-3.3-2.7-6-6-6h-20c-3.3 0-6 2.7-6 6v148c0 3.3 2.7 6 6 6h20c3.3 0 6-2.7 6-6zm-96 0V134c0-3.3-2.7-6-6-6h-20c-3.3 0-6 2.7-6 6v212c0 3.3 2.7 6 6 6h20c3.3 0 6-2.7 6-6z"/>
+            </svg>
+            <span>MONITORAMENTO</span>
+          </a>
+        </div>
+        <div class="btnMonitoramento HeaderBtns">
+          <a href="">
+            <svg id="iconMonitoramento" class="headerIconsBtn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path fill="#eee2df" d="M256 12.3V224h212c6.9 0 12.4-5.8 12-12.7C473.6 97.9 382.3 6.7 268.7.3c-6.9-.4-12.7 5.1-12.7 12zm32 22c80.3 13.4 144.3 77.3 157.7 157.7H288V34.3zM280 256l150 150.2c4.9 4.9 12.9 4.6 17.5-.5 34.9-39 53.8-88 56.5-137 .4-6.9-5.1-12.7-12-12.7H280zm156.9 111.8l-79.6-79.9h112.4c-4.8 28.6-16 56.3-32.8 79.9zM224 256V44.2c0-6.9-5.8-12.4-12.8-12C93.6 38.9.2 136.5 0 255.6c-.3 193.1 229.6 296 373.1 168 5.2-4.6 5.4-12.6.5-17.5L224 256zm-192 0c0-96.6 70.8-174.6 160-189.5V256c0 16.3-2.4 10.8 9.4 22.6L335.3 413C209.3 502.9 32 412 32 256z"/>
+            </svg>
+            <span>RELATÓRIO</span>
+          </a>
+        </div>
+        <div class="btnWeb HeaderBtns">
+          <a href="">
+            <svg id="iconWeb" class="headerIconsBtn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+              <path fill="#eee2df" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm193.2 152h-82.5c-9-44.4-24.1-82.2-43.2-109.1 55 18.2 100.2 57.9 125.7 109.1zM336 256c0 22.9-1.6 44.2-4.3 64H164.3c-2.7-19.8-4.3-41.1-4.3-64s1.6-44.2 4.3-64h167.4c2.7 19.8 4.3 41.1 4.3 64zM248 40c26.9 0 61.4 44.1 78.1 120H169.9C186.6 84.1 221.1 40 248 40zm-67.5 10.9c-19 26.8-34.2 64.6-43.2 109.1H54.8c25.5-51.2 70.7-90.9 125.7-109.1zM32 256c0-22.3 3.4-43.8 9.7-64h90.5c-2.6 20.5-4.2 41.8-4.2 64s1.5 43.5 4.2 64H41.7c-6.3-20.2-9.7-41.7-9.7-64zm22.8 96h82.5c9 44.4 24.1 82.2 43.2 109.1-55-18.2-100.2-57.9-125.7-109.1zM248 472c-26.9 0-61.4-44.1-78.1-120h156.2c-16.7 75.9-51.2 120-78.1 120zm67.5-10.9c19-26.8 34.2-64.6 43.2-109.1h82.5c-25.5 51.2-70.7 90.9-125.7 109.1zM363.8 320c2.6-20.5 4.2-41.8 4.2-64s-1.5-43.5-4.2-64h90.5c6.3 20.2 9.7 41.7 9.7 64s-3.4 43.8-9.7 64h-90.5z"/>
+            </svg>
+            <span>WEB</span>
+          </a>
+        </div>
+        <div class="btnTimesheet HeaderBtns">
+          <a href="">
+            <svg id="iconTimesheet" class="headerIconsBtn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path fill="#eee2df" d="M393.3 141.3l17.5-17.5c4.7-4.7 4.7-12.3 0-17l-5.7-5.7c-4.7-4.7-12.3-4.7-17 0l-17.5 17.5c-35.8-31-81.5-50.9-131.7-54.2V32h25c6.6 0 12-5.4 12-12v-8c0-6.6-5.4-12-12-12h-80c-6.6 0-12 5.4-12 12v8c0 6.6 5.4 12 12 12h23v32.6C91.2 73.3 0 170 0 288c0 123.7 100.3 224 224 224s224-100.3 224-224c0-56.1-20.6-107.4-54.7-146.7zM224 480c-106.1 0-192-85.9-192-192S117.9 96 224 96s192 85.9 192 192-85.9 192-192 192zm4-128h-8c-6.6 0-12-5.4-12-12V172c0-6.6 5.4-12 12-12h8c6.6 0 12 5.4 12 12v168c0 6.6-5.4 12-12 12z"/>
+            </svg>
+            <span>TIMESHEET</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <h1>Sample document</h1>
+    <p>
+    Some text
+    </p>
+  </body>
+</html>
